@@ -26,6 +26,14 @@
 	<script src="js/services/todos-service.js"></script> <!-- load our todo service -->
 	<script src="js/todos-main.js"></script> <!-- load our main application -->
 
+	<script> angular.module('changeExample', []).controller('todos-ctrl', ['$scope', function($scope) { 
+      $scope.isDone
+      $scope.change = function() {
+        $scope.isDone = true;
+      };
+    }]);
+</script>
+
 </head>
 <!-- SET THE CONTROLLER -->
 <body ng-controller="mainController">
@@ -45,6 +53,13 @@
                                   <input type="checkbox"> {{ todo.text }}
                                   </label>
                                  </div>
+                                 <div ng-controller="ExampleController">
+  								  <input type="checkbox" ng-model="confirmed" ng-change="change()" id="ng-change-example1" />
+ 								  <input type="checkbox" ng-model="confirmed" id="ng-change-example2" />
+								 
+								  <tt><s></s>text is striked</tt><br/>
+
+								  </div>
                              
 				<p class="text-center" ng-show="loading">
 					<span class="fa fa-spinner fa-spin fa-3x"></span>
@@ -52,6 +67,10 @@
 
 			</div>
 		</div>
+
+
+
+
 
 		<!-- FORM TO CREATE TODOS -->
 		<div id="todo-form" class="row">
